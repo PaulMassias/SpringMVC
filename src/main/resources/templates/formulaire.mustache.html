@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Exemple de template</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+		<h1>Ajouter une catégorie</h1>
+		<!--/* Au revient au contrôleur, avec la méthode POST */-->
+		<form method="post" action="save">
+			<div class="column">
+				<!--/* th:field définit quel champ de l'objet est édité par cette zone de saisie */-->
+				<label for="code">Code:</label>
+				<input type="text" name="code" 
+					{{#city.code}} value="{{city.code}}" {{/city.code}}
+					readonly="readonly" placeholder="auto-généré, nom modifiable"/>
+				<input type="submit" value="Enregistrer" /> <input type="reset" value="Réinitialiser" />
+			</div>
+			<div class="column">
+				<label for="libelle">Libellé:</label>
+				<input type="text" name="libelle" 
+					{{#city.libelle}} value="{{city.libelle}}" {{/city.libelle}}
+					placeholder="Libellé de la catégorie"/>				
+				<label for="description">Description:</label>
+				<input type="text" name="description"
+					{{#city.description}} value="{{city.description}}" {{/city.description}}
+					placeholder="Description de la catégorie"/>
+			</div>
+		</form>		
+		<hr/>
+		<a href="/">Retour au menu</a>
+		<hr/>
+
+
+</body>
+
+</html>
