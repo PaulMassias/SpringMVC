@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Exemple de template</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+		<table>
+			<tr><th>Nom</th><th>Population (M)</th><th>Pays</th></tr>
+			{{! Pour chaque villes dans la liste 'cities' transmise par le contrôleur }}
+			{{#cities}}
+				<tr>
+					{{! On affiche les informations de la ville }}
+					<td>{{name}}</td>
+					<td>{{population}}</td>
+					<td>{{country.name}}</td>
+					<td>
+						<a href='edit?id={{id}}'>Modifier</a> 
+						<a href='delete?id={{id}}'>Supprimer</a>
+					</td>
+				</tr>
+			{{/cities}}
+		</table>
+
+
+	<a href='add'>Ajouter une ville</a>
+
+</body>
+
+</html>

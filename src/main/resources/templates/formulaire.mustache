@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Exemple de template</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+		<h1>Ajouter une ville</h1>
+		<!--/* Au revient au contrôleur, avec la méthode POST */-->
+		<form method="post" action="save">
+			<div class="column">
+				<!--/* th:field définit quel champ de l'objet est édité par cette zone de saisie */-->
+				<label for="id">Code:</label>
+				<input type="text" name="id" 
+					{{#city.id}} value="{{city.id}}" {{/city.id}}
+					readonly="readonly" placeholder="auto-généré, nom modifiable"/>
+				
+			</div>
+
+			<div class="column">
+				<label for="nom">Nom :</label>
+				<input type="text" name="name" 
+					{{#city.name}} value="{{city.name}}" {{/city.name}}
+					placeholder="Nom de la ville"/>
+
+				<label for="population">Population:</label>
+				<input type="text" name="population"
+					{{#city.population}} value="{{city.population}}" {{/city.population}}
+					placeholder="Population de la ville"/>
+			</div>
+
+			<div class="column">
+				<select name="country"  id="countrySelector">
+					{{#countries}} {{! Une option par pays}}
+					<option value="{{id}}">{{name}}</option>
+					{{/countries}}
+				</select><hr>
+				<input type="submit" value="Enregistrer"  /> <input type="reset" value="Réinitialiser" />
+			</div>
+
+		</form>		
+		<hr/>
+		<a href="/">Retour au menu</a>
+		<hr/>
+
+
+</body>
+
+</html>
